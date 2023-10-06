@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 	"os"
@@ -28,8 +27,6 @@ func ListBenchmarksHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error reading data folder", http.StatusInternalServerError)
 		return
 	}
-	fmt.Println("Folders:")
-	fmt.Println(folders)
 
 	// generate HTML template with links to benchmarks
 	var benchmarkNames []string

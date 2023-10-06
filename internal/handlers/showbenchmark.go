@@ -10,7 +10,6 @@ import (
 )
 
 func GetBenchmarkByIdHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Getting test data")
 	// load environment variables
 	err := godotenv.Load()
 	if err != nil {
