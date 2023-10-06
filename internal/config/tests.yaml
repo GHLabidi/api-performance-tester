@@ -1,0 +1,28 @@
+- TestUniqueName: simple_search_forced
+  TestDisplayName: Simple Search Forced
+  TestDescription: Searching for the word "amazing" with forced simple search
+  RequestURL: http://localhost:8080/search?word=amazing&forceSearch=true&searchMode=simple
+  RequestType: GET
+  TestMode: continious
+  TestDuration: 10 
+- TestUniqueName: simple_search
+  TestDisplayName: Simple Search
+  TestDescription: Searching for the word "amazing" with simple search
+  RequestURL: http://localhost:8080/search?word=amazing&searchMode=simple
+  RequestType: GET
+  TestMode: continious
+  TestDuration: 10
+- TestUniqueName: concurrent_search
+  TestDisplayName: Concurrent Search
+  TestDescription: Searching for the word "amazing" with concurrent search
+  RequestURL: http://localhost:8080/search?word=amazing&searchMode=concurrent
+  RequestType: GET
+  TestMode: continious
+  TestDuration: 10
+- TestUniqueName: concurrent_search_forced
+  TestDisplayName: Concurrent Search Forced
+  TestDescription: Searching for the word "amazing" with forced concurrent search
+  RequestURL: http://localhost:8080/search?word=amazing&forceSearch=true&searchMode=concurrent
+  RequestType: GET
+  TestMode: continious
+  TestDuration: 10

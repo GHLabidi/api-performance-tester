@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Compare</title>
+        <script src='https://cdn.tailwindcss.com'></script>
+    </head>
+  <body>
+    <h1 class="text-center text-2xl font-bold m-4">Compare</h1>
+    <div class="card rounded-xl border-2 p-10 m-5 flex justify-evenly items-center">
+
+    <form action="/compare" method="post">
+        <div class="flex justify-center space-x-4">
+            <div>
+                <label for="folder1" class="block mb-2 text-sm font-medium text-gray-900">Benchmark 1:</label>
+                <select id="folder1" name="folder1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    {{range .Options}}
+                        <option value="{{.}}">{{.}}</option>
+                    {{end}}
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="folder2" class="block mb-2 text-sm font-medium text-gray-900">Benchmark 2:</label>
+                <select id="folder2" name="folder2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    {{range .Options}}
+                        <option value="{{.}}">{{.}}</option>
+                    {{end}}
+                </select>
+            </div>
+        </div>
+            <br>
+            <div class="flex justify-center">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Compare</button>
+            </div>
+    </form>
+    </div>
+  </body>
+</html>
