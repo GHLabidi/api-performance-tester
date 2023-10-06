@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./data:/app/data
+      - ./comparisons:/app/comparisons
+    environment:
+      - TESTS_FILE_PATH=/app/config/tests.yaml
+      - DATA_FOLDER=/app/data
+      - COMPARISON_FOLDER=/app/comparisons
+      - PORT=8081
+    ports:
+      - "8081:8081"
+    command: ["./app"]
+    network_mode: bridge

@@ -50,7 +50,7 @@ func CompareHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	// parse template
-	tmpl, err := template.ParseFiles("internal/templates/compare.html")
+	tmpl, err := template.ParseFiles("templates/compare.html")
 	if err != nil {
 		http.Error(w, "Error loading template", http.StatusInternalServerError)
 		return

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 
@@ -25,10 +26,12 @@ func main() {
 	// load tests from yaml file
 	tests, err := models.LoadTestsFromFile(testsFilePath)
 	if err != nil {
-		panic(err)
+		fmt.Println("Could not load tests from file: ", err)
+
+	} else { // if tests are loaded successfully
+		// run benchmarks, generate reports and save results.
+		httpbenchmark.RunTests(tests)
 	}
-	// run benchmarks, generate reports and save results.
-	httpbenchmark.RunTests(tests)
 	// start http server
 	startServer(port)
 
