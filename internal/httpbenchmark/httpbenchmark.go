@@ -53,7 +53,7 @@ func RunSingleTest(test models.Test) error {
 	benchmark.SaveRawData()
 	fmt.Println("Generating Report.")
 	benchmark.GenerateReport()
-	fmt.Println("Done. You can now view the results in: http://localhost:8081/benchmarks/" + test.TestUniqueName)
+	fmt.Println("Done. You can now view the results in: http://localhost:8081/benchmarks/" + test.TestUniqueName) // TODO make the link dynamic
 
 	return nil
 }

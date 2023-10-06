@@ -18,16 +18,41 @@ API Performance Tester is a load testing tool for APIs written in Go and Python.
         2. Run `./app`
 6. The program will run the tests and start a web server to view and compare the results.
 ## Adding your own tests
-### Example
+### Prerequisites
+Your API endpoint must return a json object with a "QueryDuration" field (representing the time it took to execute the query in nanoseconds). The rest of the fields are up to you.
+- **Sample Response**
+```json
+{
+    "QueryDuration": 123456789,
+    "Results": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "age": 25
+        },
+        {
+            "id": 2,
+            "name": "Jane Doe",
+            "age": 23
+        }
+    ]
+}
+```
+
+### Steps
+1. Add your tests in config/tests.yaml
 ```yaml
 - TestUniqueName: simple_search
   TestDisplayName: Simple Search
   TestDescription: Searching for the word "amazing" with simple search
   RequestURL: http://localhost:8080/search?word=amazing&searchMode=simple
   RequestType: GET
-  TestMode: continious
+  TestMode: continious # continious or concurrent. If concurrent, you must specify the number of concurrent requests.
+  # ConcurrentRequests: 100 # Only needed if TestMode is concurrent. If not specified, it will default to 10.
   TestDuration: 10
+# Repeat for other tests
 ```
+2. Run the program. It will run the tests and start a web server to view and compare the results.
 ## Web User Interface
 ### /benchmarks
 Lists all the benchmarks that have been run. Clicking on a benchmark will take you to the benchmark page.
